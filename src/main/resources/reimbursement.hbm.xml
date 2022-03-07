@@ -7,10 +7,8 @@
         <id name="id" type="int" column="id">
             <generator class="increment"></generator>
         </id>
-        <property name="name" column="name" type="string"/>
-        <property name="email" column="email" type="string"/>
-        <property name="country" column="country" type="string"/>
-        <property name="gender" column="gender" type="string"/>
-
+        <property name="amount" column="amount" type="double"/>
+        <property name="description" column="description" type="string"/>
+        <property name="src" column="src" type="string"/>
     </class>
 </hibernate-mapping>

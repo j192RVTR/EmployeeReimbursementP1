@@ -7,10 +7,12 @@
         <id name="id" type="int" column="id">
             <generator class="increment"></generator>
         </id>
+        <property name="username" column="username" type="string"/>
+        <property name="password" column="password" type="string"/>
         <property name="name" column="name" type="string"/>
         <property name="email" column="email" type="string"/>
         <property name="country" column="country" type="string"/>
         <property name="gender" column="gender" type="string"/>
-        <property name="isManager" column="isManager" type="boolean"/>
+        <property name="manager" column="manager" type="boolean"/>
     </class>
 </hibernate-mapping>
