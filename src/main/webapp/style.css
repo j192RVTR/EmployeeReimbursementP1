@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+        body{
+            font-family: 'Lato', sans-serif;
+            background-color: #ccc;
+            margin: 0;
+        }
+        .wrapper{
+            width: 400px;
+            padding: 40px;
+            margin: auto;
+        }
+        .form-wrapper{
+            background-color: white;
+            width: 400px;
+            padding: 40px;
+            margin: auto;
+            margin-top: 100px;
+            border-radius: 10px;
+            border: 1px solid lightgray;
+            margin-bottom: 50px;
+        }
+        input[type="text"], input[type="email"], select#country{
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+        }
+        input[type="radio"]{
+            box-sizing: border-box;
+                        padding: 10px;
+                        margin-bottom: 10px;
+                        margin-top: 10px;
+                        border: 1px solid #ccc;
+                        border-radius: 2px;
+        }
+        label{
+            display: block;
+            padding-left: 2px;
+            padding-bottom: 2px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"]{
+            border-radius: 5px;
+        }
+        input[type="text"]:focus, input[type="email"]:focus{
+            box-shadow: 0px 0px 2px 2px orange;
+
+        }
+        input.create{
+            background: linear-gradient(to bottom,white,lightgray);
+            /* box-shadow: 0 1px 0 rgb(255 255 255 / 40%) inset; */
+            border-radius: 2px;
+            border-color: gray;
+            border-width: thin;
+            text-align: center;
+            width: 294px;
+            text-decoration: none;
+            margin: auto;
+            box-sizing: border-box;
+            min-height: 29px;
+            cursor: pointer;
+        }
+        input.continue{
+            background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+            /* box-shadow: 0 1px 0 rgb(255 255 255 / 40%) inset; */
+            border-radius: 2px;
+            border-color: #a88734 #9c7e31 #a88734 #a88734;
+            border-width: thin;
+            text-align: center;
+            width: 294px;
+            text-decoration: none;
+            margin: auto;
+            box-sizing: border-box;
+            min-height: 29px;
+            cursor: pointer;
+        }
+
+        input.continue:hover{
+            background: linear-gradient(to bottom,#f7dfa5,#e9ba49);
+
+        }
+
+        .center{
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+        }
+        .a-span{
+            color: #0066c0;
+            cursor: pointer;
+        }
+        .a-span:hover{
+            color:#e9ba49;
+        }
+        div.nav{
+                    background-color: #232f3e;
+                    box-sizing: content-box;
+                    display: flex;
+                    align-items: center;
+
+                }
+                a.nav{
+                    text-decoration: none;
+                    color: white;
+                    padding: 8px 9px 8px 9px;
+                    font-size: 18px;
+                    font-weight: 700;
+                    line-height: 1em;
+                    margin: 5px 3px 6px 3px;
+                    box-sizing: content-box;
+                }
+                a.nav:hover{
+                    border: transparent;
+                    box-shadow: 0px 0px 0px 2px white;
+                }
+                a.nav:focus{
+                    color: lightgray;
+                }
+                .table-wrapper{
+                          width: 1200px;
+                          padding: 30px;
+                          margin: auto;
+                          background-color: #fff;
+                      }
+                      table{
+                          width: 100%;
+                          border-collapse: collapse;
+                      }
+                      thead{
+                          background-color: #232f3e;
+                          color: #fff;
+                      }
+                      th, td{
+
+                          padding: 20px;
+                          font-size: 32px;
+                          text-align: center;
+                          color: #232f3e;
+                      }
+                      tr{
+                        border: 2px solid #232f3e;
+                      }
+                      th{
+                          color: #fff;
+                      }
+                      tr:nth-child(even){
+                          background-color: #ccc;
+                      }
+                      tbody>tr:hover{
+                          background-color: #668bb8;
+                      }
+                      a{
+                        text-decoration: none;
+                      }
+                      @keyframes spinner {
+                              0% {
+                                transform: translate3d(-50%, -50%, 0) rotate(0deg);
+                              }
+                              100% {
+                                transform: translate3d(-50%, -50%, 0) rotate(360deg);
+                              }
+                            }
+                            .spin::before {
+                              animation: 1.5s linear infinite spinner;
+                              animation-play-state: inherit;
+                              border: solid 5px #cfd0d1;
+                              border-bottom-color: #1c87c9;
+                              border-radius: 50%;
+                              content: "";
+                              height: 80vw;
+                              width: 80vw;
+                              position: absolute;
+                              top: 10%;
+                              left: 10%;
+                              transform: translate3d(-50%, -50%, 0);
+                              will-change: transform;
+                            }
+                            .shimmer {
+                              color: grey;
+                              display:inline-block;
+                              -webkit-mask:linear-gradient(-60deg,#000 30%,#0005,#000 70%) right/300% 100%;
+                              background-repeat: no-repeat;
+                              animation: shimmer 4.5s infinite;
+
+                            }
+
+                             @keyframes shimmer {
+                             100% {-webkit-mask-position:left}
+                            }
