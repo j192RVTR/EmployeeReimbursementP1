@@ -10,5 +10,8 @@
         <property name="amount" column="amount" type="double"/>
         <property name="description" column="description" type="string"/>
         <property name="src" column="src" type="string"/>
+        <property name="status" column="status" type="string"/>
+        <property name="emp_id" column="emp_id" type="int"/>
+        <property name="man_id" column="man_id" type="int"/>
     </class>
 </hibernate-mapping>
