@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class HomeServlet extends HttpServlet {
     @Override
@@ -15,8 +16,11 @@ public class HomeServlet extends HttpServlet {
             return;
         }
         resp.setContentType("text/html");
-        resp.getWriter().print("<link rel=\"stylesheet\" href=\"style.css\">");
-        req.getRequestDispatcher("navbar.jsp").include(req, resp);
-        req.getRequestDispatcher("home.html").include(req, resp);
+        try(PrintWriter out = resp.getWriter()) {
+            out.print("<link rel=\"stylesheet\" href=\"style.css\">");
+            out.print("<title>Home Page</title>");
+            req.getRequestDispatcher("navbar.jsp").include(req, resp);
+            req.getRequestDispatcher("home.html").include(req, resp);
+        }
     }
 }

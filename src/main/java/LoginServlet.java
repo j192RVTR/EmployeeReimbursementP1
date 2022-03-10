@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class LoginServlet extends HttpServlet {
     @Override
@@ -15,10 +16,13 @@ public class LoginServlet extends HttpServlet {
         }
 
         resp.setContentType("text/html");
-        resp.getWriter().print("<link rel=\"stylesheet\" href=\"style.css\">");
+        try(PrintWriter out = resp.getWriter()) {
+            out.print("<link rel=\"stylesheet\" href=\"style.css\">");
+            out.print("<title>Login</title>");
 
-        req.getRequestDispatcher("navbar.jsp").include(req, resp);
-        req.getRequestDispatcher("login.html").include(req, resp);
+            req.getRequestDispatcher("navbar.jsp").include(req, resp);
+            req.getRequestDispatcher("login.html").include(req, resp);
+        }
     }
 
     @Override
@@ -39,11 +43,13 @@ public class LoginServlet extends HttpServlet {
 
 
         resp.setContentType("text/html");
+        PrintWriter out = resp.getWriter();
 
-        resp.getWriter().print("<link rel=\"stylesheet\" href=\"style.css\">");
+        out.print("<link rel=\"stylesheet\" href=\"style.css\">");
         req.getRequestDispatcher("navbar.jsp").include(req, resp);
-        resp.getWriter().println("<p style='color:red; position: absolute;'>Login Failed!</p>");
+        out.println("<p style='color:red; position: absolute;'>Login Failed!</p>");
         req.getRequestDispatcher("login.html").include(req, resp);
+        out.close();
 
 
 

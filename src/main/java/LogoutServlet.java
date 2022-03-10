@@ -11,13 +11,16 @@ public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
-        PrintWriter out = resp.getWriter();
-        resp.getWriter().print("<link rel=\"stylesheet\" href=\"style.css\">");
+        try(PrintWriter out = resp.getWriter()) {
+            out.print("<link rel=\"stylesheet\" href=\"style.css\">");
+            out.print("<title>Logout</title>");
 
-        HttpSession session = req.getSession();
-        session.invalidate();
 
-        req.getRequestDispatcher("navbar.jsp").include(req, resp);
-        out.println("<br>You are logged out successfully.");
+            HttpSession session = req.getSession();
+            session.invalidate();
+
+            req.getRequestDispatcher("navbar.jsp").include(req, resp);
+            out.println("<br>You are logged out successfully.");
+        }
     }
 }
