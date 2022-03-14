@@ -12,7 +12,7 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         if(HibernateHelper.verifySession(req)){
-            resp.sendRedirect("/");
+            resp.sendRedirect("home");
         }
 
         resp.setContentType("text/html");

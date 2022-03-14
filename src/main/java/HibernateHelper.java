@@ -10,6 +10,7 @@ import org.hibernate.cfg.Configuration;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 public class HibernateHelper {
@@ -66,12 +67,20 @@ public class HibernateHelper {
 
         Part part = request.getPart("file");
         String contentType = part.getContentType();
-        if(!contentType.equals("image/png")&&!contentType.equals("image/jpeg")){
+        if(!contentType.contains("image")){
             return null;
         }
 
+        File writePath = new File(savePath + File.separator + filename);
+        StringBuilder filenameBuilder = new StringBuilder(filename);
+        while(writePath.exists()){
+            filenameBuilder.insert(0, "1");
+            writePath = new File(savePath + File.separator + filenameBuilder);
+        }
+        filename = filenameBuilder.toString();
+
         part.write(savePath + File.separator + filename);
 
-        return savePath + File.separator + filename;
+        return "img/" + filename;
     }
 }

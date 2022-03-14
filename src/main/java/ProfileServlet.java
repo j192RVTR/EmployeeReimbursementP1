@@ -29,8 +29,9 @@ public class ProfileServlet extends HttpServlet {
             req.setAttribute("email", wrap(e.email));
             req.setAttribute("gender", e.gender);
             req.setAttribute("country", e.country);
+            req.setAttribute("manager", e.manager ? "true" : "false");
             req.setAttribute("id", wrap(Integer.toString(e.id)));
-            req.setAttribute("action", "None");
+            req.setAttribute("action", "");
             req.getRequestDispatcher("profile.jsp").include(req, resp);
         }
     }

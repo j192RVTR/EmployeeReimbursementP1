@@ -27,7 +27,12 @@ public class ViewServlet extends HttpServlet {
                     """);
             out.write("<body>");
             req.getRequestDispatcher("navbar.jsp").include(req, resp);
+
             out.write("<div class=\"table-wrapper\">");
+            if(req.getSession().getAttribute("reim.msg") != null){
+                out.println("<p style='color:green; position: absolute; top: 70px;'>Update Success</p>");
+                req.getSession().setAttribute("reim.msg", null);
+            }
             out.write("<h1>Reimbursement List</h1>");
             req.getRequestDispatcher("filter.jsp").include(req, resp);
             out.write("<table border=\"1\">");
@@ -83,11 +88,11 @@ public class ViewServlet extends HttpServlet {
                             <td %s>%s</td>
                             <td>%s</td>
                             <td>%s</td>
-                            <td><img src="%s" alt="Uploaded image" width=100 height=100></td>
+                            <td><a %s href="%s" target="_blank"><img src="%s" alt="No Uploaded image" class="receipt"></a></td>
                             <td %s><a %s href="approve?id=%d&man=%d&status=APPROVED">Approve</a></td>
                             <td %s><a %s href="approve?id=%d&man=%d&status=DENIED">Deny</a></td>
                           </tr>
-                """, DecimalFormat.getCurrencyInstance().format(param.amount), hidden, employee, param.description, param.status, param.src, hidden, resolved, param.id, man_id, hidden, resolved, param.id, man_id);
+                """, DecimalFormat.getCurrencyInstance().format(param.amount), hidden, employee, param.description, param.status, param.src.charAt(param.src.length()-1)=='/' ? "style=\"pointer-events: none\"" : "", param.src, param.src, hidden, resolved, param.id, man_id, hidden, resolved, param.id, man_id);
     }
 
 

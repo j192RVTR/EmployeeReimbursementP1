@@ -61,4 +61,15 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 
         session.close();
     }
+
+    @Override
+    public Employee getEmployeeByUsername(String username, boolean manager) {
+        Session session = HibernateHelper.getSession();
+        Query query = session.createQuery("from Employee where username = :username and manager = :manager");
+        query.setParameter("username", username);
+        query.setParameter("manager", manager);
+        Employee employee = (Employee) query.uniqueResult();
+        session.close();
+        return employee;
+    }
 }

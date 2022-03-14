@@ -35,8 +35,9 @@ public class AddServlet extends HttpServlet {
         Part part = req.getPart("file");
         if(part!=null) {
             String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
-            HibernateHelper.uploadImage(req, resp, filename);
-            reimbursement.setSrc("img/"+filename);
+            String save = HibernateHelper.uploadImage(req, resp, filename);
+            if(save != null)
+                reimbursement.setSrc(save);
         }
         boolean success = reimbursementDAO.addReimbursement(reimbursement);
 

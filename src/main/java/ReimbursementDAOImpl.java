@@ -64,4 +64,14 @@ public class ReimbursementDAOImpl implements ReimbursementDAO{
         session.close();
         return true;
     }
+
+    @Override
+    public Reimbursement getReimbursementById(int id) {
+        Session session = HibernateHelper.getSession();
+        Transaction transaction = session.beginTransaction();
+        Reimbursement reimbursement = session.get(Reimbursement.class, id);
+        transaction.commit();
+        session.close();
+        return reimbursement;
+    }
 }

@@ -60,6 +60,30 @@
     <servlet-name>updateservlet</servlet-name>
     <servlet-class>UpdateServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>forgotservlet</servlet-name>
+    <servlet-class>ForgotServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>createservlet</servlet-name>
+    <servlet-class>CreateServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>resetservlet</servlet-name>
+    <servlet-class>ResetServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>resetservlet</servlet-name>
+    <url-pattern>/reset</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>createservlet</servlet-name>
+    <url-pattern>/create</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>forgotservlet</servlet-name>
+    <url-pattern>/forgot</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>updateservlet</servlet-name>
     <url-pattern>/update</url-pattern>

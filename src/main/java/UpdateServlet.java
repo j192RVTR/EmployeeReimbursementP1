@@ -27,6 +27,7 @@ public class UpdateServlet extends HttpServlet {
             req.setAttribute("email", wrap(e.email));
             req.setAttribute("gender", e.gender);
             req.setAttribute("country", e.country);
+            req.setAttribute("manager", e.manager ? "true" : "false");
             req.setAttribute("id", wrap(Integer.toString(e.id)));
             req.setAttribute("action", "update");
             req.getRequestDispatcher("profile.jsp").include(req, resp);
@@ -52,6 +53,12 @@ public class UpdateServlet extends HttpServlet {
         int id = (Integer) req.getSession().getAttribute("id");
         EmployeeDAO employeeDAO = EmployeeDAOFactory.getEmployeeDAO();
         Employee e = employeeDAO.getEmployeeByID(id);
+        e.setUsername(req.getParameter("username"));
+        e.setName(req.getParameter("name"));
+        e.setEmail(req.getParameter("email"));
+        e.setGender(req.getParameter("gender"));
+        e.setCountry(req.getParameter("country"));
+        employeeDAO.update(e);
         req.getRequestDispatcher("navbar.jsp").include(req, resp);
         out.println("<p style='color:green; position: absolute;'>Update Success!</p>");
         req.setAttribute("header", "Update Profile");
@@ -60,6 +67,7 @@ public class UpdateServlet extends HttpServlet {
         req.setAttribute("email", wrap(e.email));
         req.setAttribute("gender", e.gender);
         req.setAttribute("country", e.country);
+        req.setAttribute("manager", e.manager ? "true" : "false");
         req.setAttribute("id", wrap(Integer.toString(e.id)));
         req.setAttribute("action", "update");
         req.getRequestDispatcher("profile.jsp").include(req, resp);

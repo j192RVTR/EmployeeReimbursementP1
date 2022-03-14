@@ -6,5 +6,6 @@ public interface EmployeeDAO {
     Employee getEmployeeByUsernameAndPassword(String username, String password, boolean manager);
     void update(Employee employee);
     void add(Employee employee);
+    Employee getEmployeeByUsername(String username, boolean manager);
 
 }
