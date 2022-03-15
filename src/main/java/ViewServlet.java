@@ -92,7 +92,7 @@ public class ViewServlet extends HttpServlet {
                             <td %s><a %s href="approve?id=%d&man=%d&status=APPROVED">Approve</a></td>
                             <td %s><a %s href="approve?id=%d&man=%d&status=DENIED">Deny</a></td>
                           </tr>
-                """, DecimalFormat.getCurrencyInstance().format(param.amount), hidden, employee, param.description, param.status, param.src.charAt(param.src.length()-1)=='/' ? "style=\"pointer-events: none\"" : "", param.src, param.src, hidden, resolved, param.id, man_id, hidden, resolved, param.id, man_id);
+                """, DecimalFormat.getCurrencyInstance().format(param.amount), hidden, employee, param.description, param.status, param.src==null || param.src.charAt(param.src.length()-1)=='/' ? "style=\"pointer-events: none\"" : "", param.src, param.src, hidden, resolved, param.id, man_id, hidden, resolved, param.id, man_id);
     }
 
 
